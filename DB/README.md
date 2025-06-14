@@ -98,7 +98,7 @@ Objectif : Pour chaque année on va récupérer le meilleur film. Ici meilleur f
 
 Résultat : 
 
-[Requête n°10](../images/requete_10.png)
+![Requête n°10](../images/requete_10.png)
 
 *NB : Résultat limités à cause de la place sur la capture d'écran*
 
@@ -154,6 +154,6 @@ Objectif : L'objectif ici est de comparé la proportion des revenu des plus gros
 
 Résultat : 
 
-[Requête n°12](../images/requete_12.png)
+![Requête n°12](../images/requete_12.png)
 
 *se lit : les 10 meilleurs films en termes de revenu représentent 4,56% des revenus totaux de l'industrie (sur une base de 25 000 films)*
