@@ -79,25 +79,24 @@ try:
             ))
 
         # Réalisateurs
-        for personne in credits.get("crew", []):
-            if personne.get("job") == "Director":
-                cur.execute("""
-                    INSERT INTO realisateurs (id, nom, sexe)
-                    VALUES (%s, %s, %s)
-                    ON CONFLICT (id) DO NOTHING;
-                """, (
-                    personne["id"],
-                    personne["name"],
-                    personne.get("gender")
-                ))
+        for personne in credits.get("realisateurs", []):
+            cur.execute("""
+                INSERT INTO realisateurs (id, nom, sexe)
+                VALUES (%s, %s, %s)
+                ON CONFLICT (id) DO NOTHING;
+            """, (
+                personne["id"],
+                personne["name"],
+                personne.get("gender")
+            ))
 
-                cur.execute("""
-                    INSERT INTO films_realisateurs (film_id, realisateur_id)
-                    VALUES (%s, %s)
-                    ON CONFLICT DO NOTHING;
-                """, (details["id"], personne["id"]))
+            cur.execute("""
+                INSERT INTO films_realisateurs (film_id, realisateur_id)
+                VALUES (%s, %s)
+                ON CONFLICT DO NOTHING;
+            """, (details["id"], personne["id"]))
 
-        # Producteurs (compagnies)
+        # Producteurs 
         for prod in details.get("production_companies", []):
             cur.execute("""
                 INSERT INTO producteurs (id, nom_entreprise, pays_origine)
@@ -120,7 +119,7 @@ try:
 
         conn.commit()
 
-    print("Tous les films ont été insérés avec succès.")
+    print("Tous les films ont été insérés.")
 
 except Exception as e:
     conn.rollback()

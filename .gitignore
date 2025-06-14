@@ -2,3 +2,5 @@
 __pycache__/
 .env
 *.pyc
+test/films_us_backup.json
+test/films_us.json
